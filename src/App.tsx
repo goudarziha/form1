@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { Form } from "./components";
+import { sample } from "./utils/fixtures";
 
 function App() {
+  const [isLoading, setisLoading] = useState<boolean>(false);
+  const handleSubmit = (formData: { [key: string]: any }) => {
+    setisLoading(true);
+    console.info(formData);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Form handleSubmit={handleSubmit} disabled={isLoading}>
+        {sample}
+      </Form>
     </div>
   );
 }
