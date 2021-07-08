@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Form } from "./components";
 import { sample } from "./utils/fixtures";
+import { IObj } from "./components/Form";
 
 function App() {
   const [isLoading, setisLoading] = useState<boolean>(false);
-  const handleSubmit = (formData: { [key: string]: any }) => {
+  const handleSubmit = (formData: IObj) => {
     setisLoading(true);
     console.info(formData);
   };

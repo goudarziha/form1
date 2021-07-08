@@ -15,14 +15,14 @@ interface IDataType {
   conditional?: IConditional;
 }
 
-interface IObj {
+export interface IObj {
   [key: string]: any;
 }
 
 interface IForm {
   children?: Array<IDataType>;
   disabled?: boolean;
-  handleSubmit?: (formData: { [key: string]: any }) => void;
+  handleSubmit?: (formData: IObj) => void;
 }
 
 const MainForm = styled.form`
